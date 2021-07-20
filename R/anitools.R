@@ -165,6 +165,7 @@ ANI.dendrogram <- function(bactaxRObject,
   j <- matrix(data = 100, nrow = nrow(s), ncol = ncol(s))
   d <- j - s
   d.sym <- 0.5 * (d + t(d))
+  d.sym[is.na(d.sym)] <- 0
   d.dist <- as.dist(d.sym)
   h <- hclust(d = d.dist, method = "average")
   dend <- as.dendrogram(h)
